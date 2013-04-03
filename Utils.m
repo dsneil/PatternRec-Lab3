@@ -51,9 +51,9 @@ classdef Utils
             data = [];
             for k=1:numCs
                 cData = rawData(1:2,rawData(3,:)==k);
-                cData = reshape(cData, length(cData(1,:)), length(cData(:,1)));
+                % cData = reshape(cData, length(cData(1,:)), length(cData(:,1)));
 
-                cls = classData(cData, 'k');
+                cls = classData(cData', 'k');
                 cls.Mean = Utils.learnMean(cls);
                 cls.Cov = Utils.learnCovariance(cls);
                 cls.InvCov = inv(cls.Cov);
